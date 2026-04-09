@@ -495,11 +495,7 @@ th {
       <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 12px;">(всё просто делается на Python)</span></td>
       <td style="background-color: #ffe6e6;">❌ Минус<br><span style="font-size: 12px;">(нет поддержки DAG из коробки)</span></td>
     </tr>
-    <tr>
-      <td><b>Мониторинг</b></td>
-      <td style="background-color: #ffe6e6;">❌ Минус</td>
-      <td style="background-color: #ffe6e6;">❌ Минус</td>
-    </tr>
+
   </tbody>
 </table>
 
@@ -609,12 +605,127 @@ th {
       <td style="background-color: #ffe6e6;">❌ Минус</td>
       <td style="background-color: #ffe6e6;">❌ Минус</td>
     </tr>
+
+  </tbody>
+</table>
+
+---
+# Время переосмыслить процессы
+* разделение зон ответственности
+* kuber
+* LLM proxy
+
+
+все еще не закрываем все предыдущие проблемы
+
+---
+# Как решить оставшиеся проблемы
+* диски - волевое решение сделать S3 главным хранилищем
+  * расширение по просьбе - огромное хранилище
+  * мониторинг и тд - на devops'ах - снимаем головную боль с себя
+* диски на серверах
+  * для текущих задач только
+
+---
+# Как решить оставшиеся проблемы
+Отсутствие многошаговых пайплайнов решается через...
+![w:950](./materials/argo.png)
+...посмотреть вокруг и взять готовое
+
+---
+# Что даёт Argo Workflows?
+*(выжимка функционала "из коробки")*
+
+* **Оркестрация пайплайнов (DAG / Steps)**
+  * декларативное описание любых многошаговых задач
+  * контроль параллелизма, циклы и условия (if/else)
+  * SDK для написания пайплайнов на Python (Hera SDK), Go, Java
+  * встроенный UI для визуализации графов выполнения пайплайнов
+* **Надежность и отказоустойчивость**
+  * ретраи, таймауты на уровне отдельных шагов и всего пайплайна
+* **Observability (Наблюдаемость)**
+  * встроенные метрики Prometheus "из коробки"
+
+...искал медь, а нашел золото
+
+---
+# Итог: Инфраструктура мечты
+
+<style scoped>
+table {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+</style>
+
+<table style="width: 100%; table-layout: fixed;">
+  <thead>
     <tr>
-      <td><b>Мониторинг</b></td>
-      <td style="background-color: #ffe6e6;">❌ Минус</td>
-      <td style="background-color: #ffe6e6;">❌ Минус</td>
-      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <th style="width: 25%;">Критерий / Задача</th>
+      <th style="width: 22%;">Bare Metal</th>
+      <th style="width: 23%;">Kubernetes</th>
+      <th style="width: 30%;">K8s + Proxy + S3 + Argo</th>
     </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Масштабирование</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>CPU/RAM</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Изоляция</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Добавление железа</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Хранение секретов</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Масштабный LLM inference</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Диски</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 11px;">(S3 как безлимитное хранилище)</span></td>
+    </tr>
+    <tr>
+      <td><b>Многошаговые пайплайны</b></td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 11px;">(Argo Workflows)</span></td>
+    </tr>
+
   </tbody>
 </table>
 
