@@ -377,6 +377,7 @@ CPU/RAM не бесконечные
 * много параллельных экспериментов
 * у многих свои vllm подняты
 * понять, кто занимает без обсуждения невозможно
+* нет возможности МНОГО vllm сразу использовать для нагруженных пайплайнов
 
 ---
 # Что может пойти не так?
@@ -423,6 +424,98 @@ TLDR
 * исследователи - исследуют
 * devops'ы devops'ят
 ![h:450](./materials/delegate.png)
+
+tldr - позвали девопсов на помощь
+
+---
+# Bare Metal vs Kubernetes
+
+<style scoped>
+table {
+    font-size: 15px;
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+</style>
+
+<table style="width: 100%; table-layout: fixed;">
+  <thead>
+    <tr>
+      <th style="width: 40%;">Критерий / Задача</th>
+      <th style="width: 30%;">Bare Metal</th>
+      <th style="width: 30%;">Kubernetes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Масштабирование</b><br><span style="font-size: 12px;">(запуск множества агентов)</span></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 12px;">(можно запускать на многих серверах сразу)</span></td>
+    </tr>
+    <tr>
+      <td><b>CPU/RAM</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 12px;">(учитывает лимиты при запуске)</span></td>
+    </tr>
+    <tr>
+      <td><b>Изоляция</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 12px;">(работает ТОЛЬКО с контейнерами)</span></td>
+    </tr>
+    <tr>
+      <td><b>Добавление железа</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Хранение секретов</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Многошаговые пайплайны</b><br><span style="font-size: 12px;">(DAG: установка → агент → тесты)</span></td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 12px;">(всё просто делается на Python)</span></td>
+      <td style="background-color: #ffe6e6;">❌ Минус<br><span style="font-size: 12px;">(нет поддержки DAG из коробки)</span></td>
+    </tr>
+    <tr>
+      <td><b>Диски</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+    </tr>
+    <tr>
+      <td><b>vLLM proxy</b><br><span style="font-size: 12px;">(занятые порты)</span></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+    </tr>
+  </tbody>
+</table>
+
+
+---
+# Время переосмыслить процессы
+#TODO мем вставить какой
+* разделение зон ответственности
+* kuber
+
+
+Но этого недостаточно, не хватает нескольких ключевых ингридиентов
+
+---
+# Зачем нужен LLM proxy?
+Раньше
+* 1 vllm проброшенная справлялась с 10-30 агентами на сервере
+
+Хочется
+* пробрасывать много vllm для десятков-сотен-тысяч агентов
+* 
 
 ---
 
