@@ -481,9 +481,9 @@ th {
       <td style="background-color: #e6ffe6;">✅ Плюс</td>
     </tr>
     <tr>
-      <td><b>Многошаговые пайплайны</b><br><span style="font-size: 12px;">(DAG: установка → агент → тесты)</span></td>
-      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 12px;">(всё просто делается на Python)</span></td>
-      <td style="background-color: #ffe6e6;">❌ Минус<br><span style="font-size: 12px;">(нет поддержки DAG из коробки)</span></td>
+      <td><b>Масштабный LLM inference</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
     </tr>
     <tr>
       <td><b>Диски</b></td>
@@ -491,7 +491,12 @@ th {
       <td style="background-color: #ffe6e6;">❌ Минус</td>
     </tr>
     <tr>
-      <td><b>vLLM proxy</b><br><span style="font-size: 12px;">(занятые порты)</span></td>
+      <td><b>Многошаговые пайплайны</b><br><span style="font-size: 12px;">(DAG: установка → агент → тесты)</span></td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 12px;">(всё просто делается на Python)</span></td>
+      <td style="background-color: #ffe6e6;">❌ Минус<br><span style="font-size: 12px;">(нет поддержки DAG из коробки)</span></td>
+    </tr>
+    <tr>
+      <td><b>Мониторинг</b></td>
       <td style="background-color: #ffe6e6;">❌ Минус</td>
       <td style="background-color: #ffe6e6;">❌ Минус</td>
     </tr>
@@ -526,6 +531,92 @@ th {
 # Зачем нужен LLM proxy?
 Теперь
 ![w:950](./materials/llm_proxy.png)
+
+---
+# Итог: Bare Metal vs Kubernetes + Proxy
+
+<style scoped>
+table {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+</style>
+
+<table style="width: 100%; table-layout: fixed;">
+  <thead>
+    <tr>
+      <th style="width: 25%;">Критерий / Задача</th>
+      <th style="width: 22%;">Bare Metal</th>
+      <th style="width: 23%;">Kubernetes</th>
+      <th style="width: 30%;">K8s + LLM proxy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Масштабирование</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>CPU/RAM</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Изоляция</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Добавление железа</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Хранение секретов</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+    </tr>
+    <tr>
+      <td><b>Масштабный LLM inference</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #e6ffe6;">✅ Плюс<br><span style="font-size: 11px;">(решает проблему роутинга)</span></td>
+    </tr>
+    <tr>
+      <td><b>Диски</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+    </tr>
+    <tr>
+      <td><b>Многошаговые пайплайны</b></td>
+      <td style="background-color: #e6ffe6;">✅ Плюс</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+    </tr>
+    <tr>
+      <td><b>Мониторинг</b></td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+      <td style="background-color: #ffe6e6;">❌ Минус</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
