@@ -275,6 +275,7 @@ th {
 
 ### Агентный фреймворк
 # TODO - раскрыть на несколько слайдов как устроен claude code
+# https://arxiviq.substack.com/p/dive-into-claude-code-the-design
 ![h:450](./materials/claude_code.png)
 
 ---
