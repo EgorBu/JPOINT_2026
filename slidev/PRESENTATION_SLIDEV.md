@@ -418,9 +418,9 @@ backgroundSize: contain
 
 ---
 
-# Сбор реальных задач
+### Сбор реальных задач
 
-## Воронка задач на примере SWE-rebench V2
+#### Воронка задач на примере SWE-rebench V2
 
 | Stage | PRs | Repos |
 |---|---:|---:|
@@ -432,6 +432,7 @@ backgroundSize: contain
 | Issue text based filtering | 32,079 | 3,617 |
 
 > ~1% PR, 2% репозиториев подходят для задач
+> примерно 9 задач на репозиторий
 
 ---
 
@@ -476,7 +477,7 @@ backgroundSize: contain
 
 ---
 
-# Сбор синтетических задач
+### Сбор синтетических задач
 
 <div class="grid grid-cols-2 gap-6">
 
@@ -526,21 +527,100 @@ List<Double> normalize(List<Double> xs) {
 
 ---
 
-# Сбор задач
+### Сбор синтетических задач
+#### Воронка задач на примере SWE-smith
 
-## Синтетика 
+<table>
+<thead>
+<tr>
+  <th>Стратегия</th>
+  <th style="text-align: right">Репозиториев</th>
+  <th style="text-align: right">Кандидаты</th>
+  <th style="text-align: right">Задачи</th>
+  <th style="text-align: right">Процент успешных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Процедурная (AST-трансформации)</td>
+  <td style="text-align: right">121</td>
+  <td style="text-align: right">38 866</td>
+  <td style="text-align: right">15 641</td>
+  <td style="text-align: right"><strong>40.2%</strong></td>
+</tr>
+<tr>
+  <td>LLM (Modify + Rewrite + PR Mirroring)</td>
+  <td style="text-align: right">128</td>
+  <td style="text-align: right">50 792</td>
+  <td style="text-align: right">24 404</td>
+  <td style="text-align: right"><strong>48.0%</strong></td>
+</tr>
+<tr>
+  <td>Комбинирование LLM + процедурная</td>
+  <td style="text-align: right">124</td>
+  <td style="text-align: right">10 416</td>
+  <td style="text-align: right">10 092</td>
+  <td style="text-align: right"><strong>96.9%</strong></td>
+</tr>
+<tr style="font-weight: 600; background: #f7f7f7">
+  <td>Итого</td>
+  <td style="text-align: right">129</td>
+  <td style="text-align: right">100 074</td>
+  <td style="text-align: right">50 137</td>
+  <td style="text-align: right">50.1%</td>
+</tr>
+</tbody>
+</table>
 
-* SWE-smith
-* Всего 129 репозиториев
-* 50,137 задач
-* Много, легко и довольно однообразно
+> ~388 задач на репозиторий
 
-## Реальные задачи
+---
 
-* SWE-rebench V2
-* 145,306 репозиториев
-* 32,079 задач
-* Мало, сложно, зато интересно
+# Сбор задач: синтетика vs реальные
+
+<table>
+<thead>
+<tr>
+  <th style="width: 28%"></th>
+  <th>Синтетика (SWE-smith)</th>
+  <th>Реальные (SWE-rebench V2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Репозиториев</td>
+  <td>129</td>
+  <td>3 617</td>
+</tr>
+<tr>
+  <td>Задач</td>
+  <td>50 137</td>
+  <td>32 079</td>
+</tr>
+<tr>
+  <td>Задач на репозиторий</td>
+  <td>~388</td>
+  <td>~9</td>
+</tr>
+<tr>
+  <td>Источник бага</td>
+  <td>AST-трансформации, LLM-генерация, комбинации</td>
+  <td>реальные PR с issue на GitHub</td>
+</tr>
+<tr>
+  <td>Разнообразие багов</td>
+  <td>ограничено набором трансформаций / стилем LLM</td>
+  <td>отражает реальную разработку</td>
+</tr>
+<tr>
+  <td>Issue / постановка</td>
+  <td>сгенерирована LLM, сгенерирована по правилу</td>
+  <td>написана человеком</td>
+</tr>
+</tbody>
+</table>
+
+> **Синтетика** — много, легко, однообразно. **Реальные** — мало, сложно, разнообразно.
 
 ---
 
