@@ -424,14 +424,14 @@ backgroundSize: contain
 
 | Stage | PRs | Repos |
 |---|---:|---:|
-| PRs | 29,511,758 | 145,306 |
-| PRs with tests | 8,593,722 | 101,958 |
-| PR linked with issue and test | 805,598 | 50,797 |
-| Repo based filtering | 583,809 | 21,692 |
-| Successful tasks w/ F2P | 41,349 | 4,006 |
-| Issue text based filtering | 32,079 | 3,617 |
+| PRs | 29 511 758 | 145 306 |
+| PRs with tests | 8 593 722 | 101 958 |
+| PR linked with issue and test | 805 598 | 50 797 |
+| Repo based filtering | 583 809 | 21 692 |
+| Successful tasks w/ F2P | 41 349 | 4 006 |
+| Issue text based filtering | 32 079 | 3 617 |
 
-> ~1% PR, 2% репозиториев подходят для задач
+> ~0.1% PR, 2% репозиториев подходят для задач
 > примерно 9 задач на репозиторий
 
 ---
@@ -576,7 +576,7 @@ List<Double> normalize(List<Double> xs) {
 
 ---
 
-# Сбор задач: синтетика vs реальные
+### Сбор задач: синтетика vs реальные
 
 <table>
 <thead>
