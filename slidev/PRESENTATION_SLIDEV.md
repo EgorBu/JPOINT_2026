@@ -366,9 +366,14 @@ backgroundSize: contain
 
 <div>
 
-#### Где взять задачи?
-* сбор реальных задач
-* сбор синтетических задач
+#### Где взять SWE задачи?
+* Сбор реальных задач.
+* Сбор синтетических задач.
+
+**Требования к SWE задачам:**
+* верифицируемость (есть тесты)
+* воспроизводимость (docker-образ)
+* разнообразие (языки, типы багов)
 
 </div>
 
@@ -376,23 +381,46 @@ backgroundSize: contain
 
 ---
 
-# Сбор реальных задач
-* парсить гитхаб - искать связанные issues <-> PR в репозиториях
-* клонировать репозиторий
-* подготовить образ
-* верифицировать корректность задачи
-  * до фикса какие-то тесты падают
-  * после фикса проходят
+### Сбор реальных задач
 
-<!-- #### TODO скриншоты гитхаба/gitverse с issues и тд.  -->
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>искать связанные issues ⟷ PR в репозиториях</td>
+</tr>
+<tr>
+<td>Клонирование репозитория</td>
+<td>проверять наличие тестов в коммитах, связанных с PR</td>
+</tr>
+<tr>
+<td>Подготовка образа</td>
+<td>по правилам или билд агентом</td>
+</tr>
+<tr>
+<td>Верификация корректности задачи</td>
+<td>
+
+- наличие «золотого» патча
+- до применения «золотого» патча какие-то тесты падают (**fail-to-pass**)
+- после применения «золотого» патча проходят
+- регрессионные тесты (**pass-to-pass**) должны до и после проходить
+
+</td>
+</tr>
+</tbody>
+</table>
+
+> На самом деле даже сложнее - используют LLM для оценки постановки задачи в issues и т.д.
 
 ---
 
 # Сбор реальных задач
 
-## Воронка задач SWE-rebench V2
-
-добавить проценты от изначального количества задач
+## Воронка задач на примере SWE-rebench V2
 
 | Stage | PRs | Repos |
 |---|---:|---:|
@@ -403,56 +431,97 @@ backgroundSize: contain
 | Successful tasks w/ F2P | 41,349 | 4,006 |
 | Issue text based filtering | 32,079 | 3,617 |
 
----
-
-# Сбор синтетических задач
-* парсить гитхаб, чтобы найти подходящие репозитории
-* клонировать репозиторий
-* подготовить образ
-* верифицировать образ
-  * все тесты должны проходить
-* найти покрытые тестами функции
-* повредить их
-  * проверить, что тесты не проходят
+> ~1% PR, 2% репозиториев подходят для задач
 
 ---
 
+### Сбор синтетических задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>фильтрация по языкам и т.д.</td>
+</tr>
+<tr>
+<td>Клонирование репозитория</td>
+<td>проверка наличия тестов</td>
+</tr>
+<tr>
+<td>Подготовка образа</td>
+<td>по правилам или билд агентом</td>
+</tr>
+<tr>
+<td>Верификация образа</td>
+<td>все тесты должны проходить - это базовый образ</td>
+</tr>
+<tr>
+<td>Логика подготовки задачи</td>
+<td>
+
+- найти покрытые тестами функции
+- повредить их (получить «золотой» патч)
+- получить **fail-to-pass** & **pass-to-pass** тесты
+- подготовить образ для задачи
+
+</td>
+</tr>
+</tbody>
+</table>
+
+> Логика подготовки задачи может быть разнообразной - от правил до LLM
+
+---
+
 # Сбор синтетических задач
 
-<div class="columns">
+<div class="grid grid-cols-2 gap-6">
+
 <div>
 
 ### Оригинал
 
-```python
-def normalize_scores(scores: list[float]) -> list[float]:
-    if not scores:
-        return []
-    min_v = min(scores)
-    max_v = max(scores)
-    # Все значения одинаковые -> вернем нули
-    if max_v == min_v:
-        return [0.0 for _ in scores]
-    return [(x - min_v) / (max_v - min_v) for x in scores]
+```java
+List<Double> normalize(List<Double> xs) {
+    if (xs.isEmpty()) return List.of();
+    double min = Collections.min(xs);
+    double max = Collections.max(xs);
+    // Все значения одинаковые -> нули
+    if (min == max)
+        return Collections.nCopies(xs.size(), 0.0);
+    var out = new ArrayList<Double>();
+    for (double x : xs)
+        out.add((x - min) / (max - min));
+    return out;
+}
 ```
 
 </div>
+
 <div>
 
 ### Синтетика (bugged)
 
-```python
-def normalize_scores(scores: list[float]) -> list[float]:
-    if not scores:
-        return []
-    min_v = min(scores)
-    max_v = max(scores)
-    # Эта часть кода была удалена
+```java
+List<Double> normalize(List<Double> xs) {
+    if (xs.isEmpty()) return List.of();
+    double min = Collections.min(xs);
+    double max = Collections.max(xs);
+    // Эта часть кода была удалена
 
-    return [(x - min_v) / (max_v - min_v) for x in scores]
+
+    var out = new ArrayList<Double>();
+    for (double x : xs)
+        out.add((x - min) / (max - min));
+    return out;
+}
 ```
 
 </div>
+
 </div>
 
 ---
