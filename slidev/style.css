@@ -1,0 +1,75 @@
+/* Default slide layout: heading pinned to the top, the rest of the content
+   vertically centered in the remaining space. Applies to the default layout
+   and to the text column of image-right / image-left / iframe-* layouts. */
+.slidev-layout.default {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The block after the first heading gets pushed into the middle; the last
+   block pushes away from the bottom. When there is only the heading + one
+   content block, the content ends up perfectly centered. */
+.slidev-layout.default > :nth-child(2) {
+  margin-top: auto;
+}
+.slidev-layout.default > :last-child {
+  margin-bottom: auto;
+}
+
+/* Prevent images from overflowing the slide in either dimension. */
+.slidev-layout img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Global tweaks for tables used across comparison slides
+   (originally were <style scoped> per slide in the Marp source). */
+
+.slidev-layout table {
+  font-size: 0.75em;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.slidev-layout table th,
+.slidev-layout table td {
+  border: 1px solid #ddd;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.slidev-layout table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Inline HTML tables in the source keep their inline style attributes,
+   but we give them reasonable defaults too. */
+.slidev-layout table[style*="table-layout"] {
+  table-layout: fixed;
+}
+
+/* Typography polish for the seriph theme */
+.slidev-layout h1 {
+  letter-spacing: -0.01em;
+}
+
+.slidev-layout blockquote {
+  border-left: 3px solid #888;
+  padding-left: 0.8em;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Bullets spacing */
+.slidev-layout ul,
+.slidev-layout ol {
+  line-height: 1.55;
+}
+
+/* Uncomment to fully hide the Goto dialog (G key), if accidental presses annoy. */
+#slidev-goto-dialog { display: none !important; }
+
