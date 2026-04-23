@@ -55,7 +55,7 @@ image: /materials/egor_image.png
 <!-- https://qr-online.ru/ -->
 
 ---
-class: flex flex-col justify-center
+class: flex flex-col justify-start
 ---
 
 ### Что мы делаем?
@@ -77,17 +77,19 @@ class: flex flex-col justify-center
 
 #### RnD
 
-* полный цикл обучения кодовых моделей 
+* Полный цикл обучения кодовых моделей
   * агентная
   * автодополнение
-* подготовка данных
-* обмеры
+* Подготовка данных
+* Подготовка бенчмарков и обмеры
 
 </div>
 
 </div>
 
-> в Сбербанке и в РФ enterprise доминирует по численности JVM-языки, поэтому активно в эту сторону копаем
+<blockquote class="mt-8 text-left text-sm opacity-90 border-l-4 border-current/25 pl-4 italic max-w-none">
+В корпоративном секторе России, в том числе в Сбере, по объёму кода и числу разработчиков лидируют JVM-экосистемы — поэтому мы целенаправленно усиливаем JVM-специфичные навыки моделей.
+</blockquote>
 
 
 ---
@@ -99,9 +101,9 @@ backgroundSize: contain
 ### О чём пойдёт речь
 
 1. 1 агент
-2. 10 агентов
+2. Данные и обмеры
 3. 100 агентов
-4. 1000 агентов
+4. Планы на 1000 агентов
 
 
 ---
@@ -225,9 +227,9 @@ backgroundSize: contain
 1. **1 агент**
     * Особенность кодовой области для агентов
     * Агентный фремворк
-2. 10 агентов
+2. Данные и обмеры
 3. 100 агентов
-4. 1000 агентов
+4. Планы на 1000 агентов
 
 ---
 
@@ -310,6 +312,32 @@ backgroundSize: contain
 7. Среда выполнения: выполнение оболочки с дополнительной изолированной программной средой (shouldUseSandbox.ts), операции с файловой системой, получение данных из Интернета, подключения к серверу MCP и удаленное выполнение.-->
 
 <img src="/materials/not_simple_agent.png" class="h-[450px] mx-auto" />
+
+---
+
+### Claude Code под 🔍
+
+<!-- Исходник-сетка: materials/not_simple_agent_grid.png (2x2 копий диаграммы с красной рамкой на своей зоне). Нарезка: convert -crop 512x199+<x>+<y>. -->
+
+<img src="/materials/not_simple_agent_1.png" alt="Surface Layer" class="max-h-[70vh] w-auto max-w-full mx-auto object-contain rounded-lg shadow" />
+
+---
+
+### Claude Code под 🔍
+
+<img src="/materials/not_simple_agent_2.png" alt="Core Layer + State Layer" class="max-h-[70vh] w-auto max-w-full mx-auto object-contain rounded-lg shadow" />
+
+---
+
+### Claude Code под 🔍
+
+<img src="/materials/not_simple_agent_3.png" alt="Safety / Action Layer" class="max-h-[70vh] w-auto max-w-full mx-auto object-contain rounded-lg shadow" />
+
+---
+
+### Claude Code под 🔍
+
+<img src="/materials/not_simple_agent_4.png" alt="Backend Layer" class="max-h-[70vh] w-auto max-w-full mx-auto object-contain rounded-lg shadow" />
 
 ---
 
