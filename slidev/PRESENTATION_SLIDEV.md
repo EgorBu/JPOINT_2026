@@ -339,13 +339,13 @@ backgroundSize: contain
 
 <img src="/materials/not_simple_agent_4.png" alt="Backend Layer" class="max-h-[70vh] w-auto max-w-full mx-auto object-contain rounded-lg shadow" />
 
----
+<!-- ---
 
 ### С чем придется столкнуться при разработке агентного фреймворка
 
 <img src="/materials/eng_task.png" class="h-[450px] mx-auto" />
 
-> за скобками - бизнес логика, проверка изменений на качество, A/B тестирование и т.д.
+> за скобками - бизнес логика, проверка изменений на качество, A/B тестирование и т.д. -->
 
 ---
 
@@ -369,16 +369,16 @@ image: /materials/10_agents.png
 backgroundSize: contain
 ---
 
-# Десятки агентов
+# Данные и обмеры
 
 1. 1 агент
-2. **10 агентов**
+2. **Данные и обмеры**
     * сбор задач для агентов
     * обмеры моделей
     * данные для обучения
     * инфраструктура
 3. 100 агентов
-4. 1000 агентов
+4. Планы на 1000 агентов
 
 <!-- ---
 
@@ -423,6 +423,111 @@ backgroundSize: contain
 <td>искать связанные issues ⟷ PR в репозиториях</td>
 </tr>
 <tr>
+<td><span style="visibility: hidden">Клонирование репозитория</span></td>
+<td><span style="visibility: hidden">проверять наличие тестов в коммитах, связанных с PR</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Подготовка образа</span></td>
+<td><span style="visibility: hidden">по правилам или билд агентом</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Верификация корректности задачи</span></td>
+<td><div style="visibility: hidden">
+
+- наличие «золотого» патча
+- до применения «золотого» патча какие-то тесты падают (**fail-to-pass**)
+- после применения «золотого» патча проходят
+- регрессионные тесты (**pass-to-pass**) должны до и после проходить
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+---
+
+### Сбор реальных задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>искать связанные issues ⟷ PR в репозиториях</td>
+</tr>
+<tr>
+<td>Клонирование репозитория</td>
+<td>проверять наличие тестов в коммитах, связанных с PR</td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Подготовка образа</span></td>
+<td><span style="visibility: hidden">по правилам или билд агентом</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Верификация корректности задачи</span></td>
+<td><div style="visibility: hidden">
+
+- наличие «золотого» патча
+- до применения «золотого» патча какие-то тесты падают (**fail-to-pass**)
+- после применения «золотого» патча проходят
+- регрессионные тесты (**pass-to-pass**) должны до и после проходить
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+---
+
+### Сбор реальных задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>искать связанные issues ⟷ PR в репозиториях</td>
+</tr>
+<tr>
+<td>Клонирование репозитория</td>
+<td>проверять наличие тестов в коммитах, связанных с PR</td>
+</tr>
+<tr>
+<td>Подготовка образа</td>
+<td>по правилам или билд агентом</td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Верификация корректности задачи</span></td>
+<td><div style="visibility: hidden">
+
+- наличие «золотого» патча
+- до применения «золотого» патча какие-то тесты падают (**fail-to-pass**)
+- после применения «золотого» патча проходят
+- регрессионные тесты (**pass-to-pass**) должны до и после проходить
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+---
+
+### Сбор реальных задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>искать связанные issues ⟷ PR в репозиториях</td>
+</tr>
+<tr>
 <td>Клонирование репозитория</td>
 <td>проверять наличие тестов в коммитах, связанных с PR</td>
 </tr>
@@ -452,17 +557,337 @@ backgroundSize: contain
 
 #### Воронка задач на примере SWE-rebench V2
 
-| Stage | PRs | Repos |
-|---|---:|---:|
-| PRs | 29 511 758 | 145 306 |
-| PRs with tests | 8 593 722 | 101 958 |
-| PR linked with issue and test | 805 598 | 50 797 |
-| Repo based filtering | 583 809 | 21 692 |
-| Successful tasks w/ F2P | 41 349 | 4 006 |
-| Issue text based filtering | 32 079 | 3 617 |
+<table>
+<thead>
+<tr><th style="text-align: left">Stage</th><th style="text-align: right">PRs</th><th style="text-align: right">Repos</th></tr>
+</thead>
+<tbody>
+<tr><td>PRs</td><td style="text-align: right">29 511 758</td><td style="text-align: right">145 306</td></tr>
+<tr><td><span style="visibility: hidden">PRs with tests</span></td><td style="text-align: right"><span style="visibility: hidden">8 593 722</span></td><td style="text-align: right"><span style="visibility: hidden">101 958</span></td></tr>
+<tr><td><span style="visibility: hidden">PR linked with issue and test</span></td><td style="text-align: right"><span style="visibility: hidden">805 598</span></td><td style="text-align: right"><span style="visibility: hidden">50 797</span></td></tr>
+<tr><td><span style="visibility: hidden">Repo based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">583 809</span></td><td style="text-align: right"><span style="visibility: hidden">21 692</span></td></tr>
+<tr><td><span style="visibility: hidden">Successful tasks w/ F2P</span></td><td style="text-align: right"><span style="visibility: hidden">41 349</span></td><td style="text-align: right"><span style="visibility: hidden">4 006</span></td></tr>
+<tr><td><span style="visibility: hidden">Issue text based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">32 079</span></td><td style="text-align: right"><span style="visibility: hidden">3 617</span></td></tr>
+</tbody>
+</table>
 
-> ~0.1% PR, 2% репозиториев подходят для задач
+<div style="visibility: hidden">
+
+> ~0.1% PR, 2% репозиториев подходят для задач,
 > примерно 9 задач на репозиторий
+
+</div>
+
+---
+
+### Сбор реальных задач
+
+#### Воронка задач на примере SWE-rebench V2
+
+<table>
+<thead>
+<tr><th style="text-align: left">Stage</th><th style="text-align: right">PRs</th><th style="text-align: right">Repos</th></tr>
+</thead>
+<tbody>
+<tr><td>PRs</td><td style="text-align: right">29 511 758</td><td style="text-align: right">145 306</td></tr>
+<tr><td>PRs with tests</td><td style="text-align: right">8 593 722</td><td style="text-align: right">101 958</td></tr>
+<tr><td><span style="visibility: hidden">PR linked with issue and test</span></td><td style="text-align: right"><span style="visibility: hidden">805 598</span></td><td style="text-align: right"><span style="visibility: hidden">50 797</span></td></tr>
+<tr><td><span style="visibility: hidden">Repo based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">583 809</span></td><td style="text-align: right"><span style="visibility: hidden">21 692</span></td></tr>
+<tr><td><span style="visibility: hidden">Successful tasks w/ F2P</span></td><td style="text-align: right"><span style="visibility: hidden">41 349</span></td><td style="text-align: right"><span style="visibility: hidden">4 006</span></td></tr>
+<tr><td><span style="visibility: hidden">Issue text based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">32 079</span></td><td style="text-align: right"><span style="visibility: hidden">3 617</span></td></tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> ~0.1% PR, 2% репозиториев подходят для задач,
+> примерно 9 задач на репозиторий
+
+</div>
+
+---
+
+### Сбор реальных задач
+
+#### Воронка задач на примере SWE-rebench V2
+
+<table>
+<thead>
+<tr><th style="text-align: left">Stage</th><th style="text-align: right">PRs</th><th style="text-align: right">Repos</th></tr>
+</thead>
+<tbody>
+<tr><td>PRs</td><td style="text-align: right">29 511 758</td><td style="text-align: right">145 306</td></tr>
+<tr><td>PRs with tests</td><td style="text-align: right">8 593 722</td><td style="text-align: right">101 958</td></tr>
+<tr><td>PR linked with issue and test</td><td style="text-align: right">805 598</td><td style="text-align: right">50 797</td></tr>
+<tr><td><span style="visibility: hidden">Repo based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">583 809</span></td><td style="text-align: right"><span style="visibility: hidden">21 692</span></td></tr>
+<tr><td><span style="visibility: hidden">Successful tasks w/ F2P</span></td><td style="text-align: right"><span style="visibility: hidden">41 349</span></td><td style="text-align: right"><span style="visibility: hidden">4 006</span></td></tr>
+<tr><td><span style="visibility: hidden">Issue text based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">32 079</span></td><td style="text-align: right"><span style="visibility: hidden">3 617</span></td></tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> ~0.1% PR, 2% репозиториев подходят для задач,
+> примерно 9 задач на репозиторий
+
+</div>
+
+---
+
+### Сбор реальных задач
+
+#### Воронка задач на примере SWE-rebench V2
+
+<table>
+<thead>
+<tr><th style="text-align: left">Stage</th><th style="text-align: right">PRs</th><th style="text-align: right">Repos</th></tr>
+</thead>
+<tbody>
+<tr><td>PRs</td><td style="text-align: right">29 511 758</td><td style="text-align: right">145 306</td></tr>
+<tr><td>PRs with tests</td><td style="text-align: right">8 593 722</td><td style="text-align: right">101 958</td></tr>
+<tr><td>PR linked with issue and test</td><td style="text-align: right">805 598</td><td style="text-align: right">50 797</td></tr>
+<tr><td>Repo based filtering</td><td style="text-align: right">583 809</td><td style="text-align: right">21 692</td></tr>
+<tr><td><span style="visibility: hidden">Successful tasks w/ F2P</span></td><td style="text-align: right"><span style="visibility: hidden">41 349</span></td><td style="text-align: right"><span style="visibility: hidden">4 006</span></td></tr>
+<tr><td><span style="visibility: hidden">Issue text based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">32 079</span></td><td style="text-align: right"><span style="visibility: hidden">3 617</span></td></tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> ~0.1% PR, 2% репозиториев подходят для задач,
+> примерно 9 задач на репозиторий
+
+</div>
+
+---
+
+### Сбор реальных задач
+
+#### Воронка задач на примере SWE-rebench V2
+
+<table>
+<thead>
+<tr><th style="text-align: left">Stage</th><th style="text-align: right">PRs</th><th style="text-align: right">Repos</th></tr>
+</thead>
+<tbody>
+<tr><td>PRs</td><td style="text-align: right">29 511 758</td><td style="text-align: right">145 306</td></tr>
+<tr><td>PRs with tests</td><td style="text-align: right">8 593 722</td><td style="text-align: right">101 958</td></tr>
+<tr><td>PR linked with issue and test</td><td style="text-align: right">805 598</td><td style="text-align: right">50 797</td></tr>
+<tr><td>Repo based filtering</td><td style="text-align: right">583 809</td><td style="text-align: right">21 692</td></tr>
+<tr><td>Successful tasks w/ F2P</td><td style="text-align: right">41 349</td><td style="text-align: right">4 006</td></tr>
+<tr><td><span style="visibility: hidden">Issue text based filtering</span></td><td style="text-align: right"><span style="visibility: hidden">32 079</span></td><td style="text-align: right"><span style="visibility: hidden">3 617</span></td></tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> ~0.1% PR, 2% репозиториев подходят для задач,
+> примерно 9 задач на репозиторий
+
+</div>
+
+---
+
+### Сбор реальных задач
+
+#### Воронка задач на примере SWE-rebench V2
+
+<table>
+<thead>
+<tr><th style="text-align: left">Stage</th><th style="text-align: right">PRs</th><th style="text-align: right">Repos</th></tr>
+</thead>
+<tbody>
+<tr><td>PRs</td><td style="text-align: right">29 511 758</td><td style="text-align: right">145 306</td></tr>
+<tr><td>PRs with tests</td><td style="text-align: right">8 593 722</td><td style="text-align: right">101 958</td></tr>
+<tr><td>PR linked with issue and test</td><td style="text-align: right">805 598</td><td style="text-align: right">50 797</td></tr>
+<tr><td>Repo based filtering</td><td style="text-align: right">583 809</td><td style="text-align: right">21 692</td></tr>
+<tr><td>Successful tasks w/ F2P</td><td style="text-align: right">41 349</td><td style="text-align: right">4 006</td></tr>
+<tr><td>Issue text based filtering</td><td style="text-align: right">32 079</td><td style="text-align: right">3 617</td></tr>
+</tbody>
+</table>
+
+> ~0.1% PR, 2% репозиториев подходят для задач,
+> примерно 9 задач на репозиторий
+
+---
+
+### Сбор синтетических задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>фильтрация по языкам и т.д.</td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Клонирование репозитория</span></td>
+<td><span style="visibility: hidden">проверка наличия тестов</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Подготовка образа</span></td>
+<td><span style="visibility: hidden">по правилам или билд агентом</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Верификация образа</span></td>
+<td><span style="visibility: hidden">все тесты должны проходить - это базовый образ</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Логика подготовки задачи</span></td>
+<td><div style="visibility: hidden">
+
+- найти покрытые тестами функции
+- повредить их (получить «золотой» патч)
+- получить **fail-to-pass** & **pass-to-pass** тесты
+- подготовить образ для задачи
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> Логика подготовки задачи может быть разнообразной - от правил до LLM
+
+</div>
+
+---
+
+### Сбор синтетических задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>фильтрация по языкам и т.д.</td>
+</tr>
+<tr>
+<td>Клонирование репозитория</td>
+<td>проверка наличия тестов</td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Подготовка образа</span></td>
+<td><span style="visibility: hidden">по правилам или билд агентом</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Верификация образа</span></td>
+<td><span style="visibility: hidden">все тесты должны проходить - это базовый образ</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Логика подготовки задачи</span></td>
+<td><div style="visibility: hidden">
+
+- найти покрытые тестами функции
+- повредить их (получить «золотой» патч)
+- получить **fail-to-pass** & **pass-to-pass** тесты
+- подготовить образ для задачи
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> Логика подготовки задачи может быть разнообразной - от правил до LLM
+
+</div>
+
+---
+
+### Сбор синтетических задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>фильтрация по языкам и т.д.</td>
+</tr>
+<tr>
+<td>Клонирование репозитория</td>
+<td>проверка наличия тестов</td>
+</tr>
+<tr>
+<td>Подготовка образа</td>
+<td>по правилам или билд агентом</td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Верификация образа</span></td>
+<td><span style="visibility: hidden">все тесты должны проходить - это базовый образ</span></td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Логика подготовки задачи</span></td>
+<td><div style="visibility: hidden">
+
+- найти покрытые тестами функции
+- повредить их (получить «золотой» патч)
+- получить **fail-to-pass** & **pass-to-pass** тесты
+- подготовить образ для задачи
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> Логика подготовки задачи может быть разнообразной - от правил до LLM
+
+</div>
+
+---
+
+### Сбор синтетических задач
+
+<table>
+<thead>
+<tr><th style="width: 35%">Этап</th><th>Как сделать</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Парсинг гитхаба</td>
+<td>фильтрация по языкам и т.д.</td>
+</tr>
+<tr>
+<td>Клонирование репозитория</td>
+<td>проверка наличия тестов</td>
+</tr>
+<tr>
+<td>Подготовка образа</td>
+<td>по правилам или билд агентом</td>
+</tr>
+<tr>
+<td>Верификация образа</td>
+<td>все тесты должны проходить - это базовый образ</td>
+</tr>
+<tr>
+<td><span style="visibility: hidden">Логика подготовки задачи</span></td>
+<td><div style="visibility: hidden">
+
+- найти покрытые тестами функции
+- повредить их (получить «золотой» патч)
+- получить **fail-to-pass** & **pass-to-pass** тесты
+- подготовить образ для задачи
+
+</div></td>
+</tr>
+</tbody>
+</table>
+
+<div style="visibility: hidden">
+
+> Логика подготовки задачи может быть разнообразной - от правил до LLM
+
+</div>
 
 ---
 
