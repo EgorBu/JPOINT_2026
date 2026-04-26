@@ -123,36 +123,18 @@ backgroundSize: contain
 <table style="width: 100%; table-layout: fixed;">
   <thead>
     <tr>
-      <th style="width: 25%;"></th>
-      <th style="width: 25%;">РАНЬШЕ</th>
-      <th style="width: 25%;">СЕЙЧАС</th>
-      <th style="width: 25%;">БУДУЩЕЕ</th>
+      <th style="width: 25%;">Параллельно бегущие агенты</th>
+      <th style="width: 25%;">20</th>
+      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">1&nbsp;000</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>Вычисления (CPU)</b></td>
-      <td>2 сервера, ручной Docker</td>
-      <td>Kubernetes, 11+ нод, ресурсы на лету</td>
-      <td>Эластичный кластер, авто-скейлинг</td>
-    </tr>
-    <tr>
-      <td><b>Инференс (GPU)</b></td>
-      <td>8 GPU, 1 машина</td>
-      <td>96 GPU (12 × 8), единая точка доступа</td>
-      <td>200+ GPU, объединение кластеров</td>
-    </tr>
-    <tr>
-      <td><b>Параллельные агенты</b></td>
-      <td>20 на 1 сервере</td>
-      <td>200 стабильно</td>
-      <td>1 000</td>
-    </tr>
-    <tr>
       <td><b>Замер бенчмарка (500 задач)</b></td>
-      <td>~9–14 часов</td>
+      <td>9~14 часов</td>
       <td>~2 часа</td>
-      <td>&lt; 1 час</td>
+      <td>&lt; 1 часа</td>
     </tr>
     <tr>
       <td><b>Генерация 100к решений задач</b></td>
@@ -172,10 +154,10 @@ backgroundSize: contain
 <table style="width: 100%; table-layout: fixed;">
   <thead>
     <tr>
-      <th style="width: 25%;">Стадия</th>
-      <th style="width: 25%;">РАНЬШЕ</th>
-      <th style="width: 25%;">СЕЙЧАС</th>
-      <th style="width: 25%;">БУДУЩЕЕ</th>
+      <th style="width: 25%;">Параллельно бегущие агенты</th>
+      <th style="width: 25%;">20</th>
+      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">1&nbsp;000</th>
     </tr>
   </thead>
   <tbody>
