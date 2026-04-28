@@ -27,6 +27,10 @@ background: /materials/main_image.png
   JPoint 2026 · Егор Булычев
 </div>
 
+<!--
+фывфыв
+-->
+
 ---
 layout: image-right
 image: /materials/qr-code.png
@@ -40,6 +44,10 @@ backgroundSize: contain
 * А конкретно в этом докладе я расскажу про масштабирование запуска кодовых агентов
 
 > Этот доклад — про **кухню**: как запустить 1000 агентов параллельно и не сжечь кластер
+
+<!--
+уверен, что большинство из вас использует ллмки в своей жизни. Также уверен, что у вас были мысли - происходит какая-то магия и получается ллмка, которая отлично пишет код, хотя всю жизнь думали, что это одна из самых защищенных от автоматизации областей. я сегодня как раз приоткрою завесу над частью магии при подготовке хороших кодовых моделей.
+-->
 
 ---
 layout: image-right
@@ -131,21 +139,46 @@ backgroundSize: contain
   </thead>
   <tbody>
     <tr>
-      <td><b>Замер бенчмарка (500 задач)</b></td>
-      <td>9~14 часов</td>
-      <td>~2 часа</td>
-      <td>&lt; 1 часа</td>
-    </tr>
-    <tr>
-      <td><b>Генерация 100к решений задач</b></td>
+      <td><b>Генерация 100к решений агентных задач</b></td>
       <td>~100 дней</td>
       <td>~10 дней</td>
       <td>~дни</td>
     </tr>
+    <tr>
+      <td><span style="visibility: hidden"><b>Обучение</b></span></td>
+      <td><span style="visibility: hidden">7 дней</span></td>
+      <td><span style="visibility: hidden">7 дней</span></td>
+      <td><span style="visibility: hidden">7 дней</span></td>
+    </tr>
+    <tr>
+      <td><span style="visibility: hidden"><b>Обмеры</b></span></td>
+      <td><span style="visibility: hidden">~1 день</span></td>
+      <td><span style="visibility: hidden">~2 часа</span></td>
+      <td><span style="visibility: hidden">~2 часа</span></td>
+    </tr>
+    <tr style="background-color: #f9f9f9; font-weight: bold;">
+      <td><span style="visibility: hidden">Суммарно</span></td>
+      <td><span style="visibility: hidden">~107 дней</span></td>
+      <td><span style="visibility: hidden">~17 дней</span></td>
+      <td><span style="visibility: hidden">~9 дней</span></td>
+    </tr>
+    <tr style="background-color: #eef; font-weight: bold;">
+      <td><span style="visibility: hidden">Ускорение</span></td>
+      <td><span style="visibility: hidden">1</span></td>
+      <td><span style="visibility: hidden">~6×</span></td>
+      <td><span style="visibility: hidden">~11×</span></td>
+    </tr>
   </tbody>
 </table>
 
+<br>
+
+<div style="visibility: hidden">
+
+**Зачем:** За то же самое время можно проверить в ~10 раз больше гипотез.
 > **СПОЙЛЕР:** лучшая модель у того, у кого быстрее итерации
+
+</div>
 
 ---
 
@@ -162,10 +195,122 @@ backgroundSize: contain
   </thead>
   <tbody>
     <tr>
-      <td><b>Сбор данных</b></td>
-      <td>100 дней</td>
-      <td>10 дней</td>
-      <td>2 дня</td>
+      <td><b>Генерация 100к решений агентных задач</b></td>
+      <td>~100 дней</td>
+      <td>~10 дней</td>
+      <td>~дни</td>
+    </tr>
+    <tr>
+      <td><b>Обучение</b></td>
+      <td>7 дней</td>
+      <td>7 дней</td>
+      <td>7 дней</td>
+    </tr>
+    <tr>
+      <td><span style="visibility: hidden"><b>Обмеры</b></span></td>
+      <td><span style="visibility: hidden">~1 день</span></td>
+      <td><span style="visibility: hidden">~2 часа</span></td>
+      <td><span style="visibility: hidden">~2 часа</span></td>
+    </tr>
+    <tr style="background-color: #f9f9f9; font-weight: bold;">
+      <td><span style="visibility: hidden">Суммарно</span></td>
+      <td><span style="visibility: hidden">~107 дней</span></td>
+      <td><span style="visibility: hidden">~17 дней</span></td>
+      <td><span style="visibility: hidden">~9 дней</span></td>
+    </tr>
+    <tr style="background-color: #eef; font-weight: bold;">
+      <td><span style="visibility: hidden">Ускорение</span></td>
+      <td><span style="visibility: hidden">1</span></td>
+      <td><span style="visibility: hidden">~6×</span></td>
+      <td><span style="visibility: hidden">~11×</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<div style="visibility: hidden">
+
+**Зачем:** За то же самое время можно проверить в ~10 раз больше гипотез.
+> **СПОЙЛЕР:** лучшая модель у того, у кого быстрее итерации
+
+</div>
+
+---
+
+### Зачем масштабировать?
+
+<table style="width: 100%; table-layout: fixed;">
+  <thead>
+    <tr>
+      <th style="width: 25%;">Параллельно бегущие агенты</th>
+      <th style="width: 25%;">20</th>
+      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">1&nbsp;000</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Генерация 100к решений агентных задач</b></td>
+      <td>~100 дней</td>
+      <td>~10 дней</td>
+      <td>~дни</td>
+    </tr>
+    <tr>
+      <td><b>Обучение</b></td>
+      <td>7 дней</td>
+      <td>7 дней</td>
+      <td>7 дней</td>
+    </tr>
+    <tr>
+      <td><b>Обмеры</b></td>
+      <td>~1 день</td>
+      <td>~2 часа</td>
+      <td>~2 часа</td>
+    </tr>
+    <tr style="background-color: #f9f9f9; font-weight: bold;">
+      <td><span style="visibility: hidden">Суммарно</span></td>
+      <td><span style="visibility: hidden">~107 дней</span></td>
+      <td><span style="visibility: hidden">~17 дней</span></td>
+      <td><span style="visibility: hidden">~9 дней</span></td>
+    </tr>
+    <tr style="background-color: #eef; font-weight: bold;">
+      <td><span style="visibility: hidden">Ускорение</span></td>
+      <td><span style="visibility: hidden">1</span></td>
+      <td><span style="visibility: hidden">~6×</span></td>
+      <td><span style="visibility: hidden">~11×</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<div style="visibility: hidden">
+
+**Зачем:** За то же самое время можно проверить в ~10 раз больше гипотез.
+> **СПОЙЛЕР:** лучшая модель у того, у кого быстрее итерации
+
+</div>
+
+---
+
+### Зачем масштабировать?
+
+<table style="width: 100%; table-layout: fixed;">
+  <thead>
+    <tr>
+      <th style="width: 25%;">Параллельно бегущие агенты</th>
+      <th style="width: 25%;">20</th>
+      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">1&nbsp;000</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Генерация 100к решений агентных задач</b></td>
+      <td>~100 дней</td>
+      <td>~10 дней</td>
+      <td>~дни</td>
     </tr>
     <tr>
       <td><b>Обучение</b></td>
@@ -197,6 +342,7 @@ backgroundSize: contain
 <br>
 
 **Зачем:** За то же самое время можно проверить в ~10 раз больше гипотез.
+> **СПОЙЛЕР:** лучшая модель у того, у кого быстрее итерации
 
 ---
 layout: image-right
