@@ -2225,6 +2225,13 @@ backgroundSize: contain
 
 ---
 
+### Повышение эффективной утилизации GPU
+
+
+<img src="/materials/eff_util.png" class="w-[900px] mx-auto" />
+
+---
+
 ### Спасибо за внимание!
 
 <div class="grid grid-cols-2 gap-8 items-center mt-12">
