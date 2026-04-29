@@ -2266,7 +2266,14 @@ backgroundSize: contain
 ### Время ответа LLM
 <img src="/materials/vllm_proxy_monitoring.png" class="w-[850px] mx-auto" />
 
-> подсвечивает нагрузку на GPU сервера
+> подсвечивает нагрузку на GPU сервера - здесь перегруз виден
+
+---
+
+### Время ответа LLM
+<img src="/materials/vllm_proxy_monitoring_2.png" class="w-[850px] mx-auto" />
+
+> подсвечивает нагрузку на GPU сервера - здесь все отлично
 
 <!-- TODO новая схема работы  -->
 
