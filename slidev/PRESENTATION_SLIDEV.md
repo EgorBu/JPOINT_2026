@@ -145,29 +145,12 @@ backgroundSize: contain
 
 ### Почему 1000 агентов?
 
-- Мы живем в век ИИ - а это ~~век~~ 4 года масштабирования и скорости изменений
-- Больше данных + больше модель + качественное обучение -> лучше результаты
-- Цикл: **сбор данных → обучение → обмер модели** — должен быть быстрым
-- 1000 параллельных агентов ≈ минимальная планка для быстрых итераций
-- Цель: модель с близкими к SoTA-результатами на кодовых бенчмарках
-
-<!--
-откуда возникла фокусировка на числе 1000 для агентов? она возникла из того, что мы живем во время ИИ, где один из главных принципов успеха - больше данных, больше модель, лучше обучение - значит лучше модель.
-
-Я в своем докладе буду фокусироваться на первой части про данные, тк это критическая часть ускорения цикла сбор данных - обучение - обмер модели
-и 1000 агентов это минимальная планка для быстрых итераций для получения отличной кодовой модели
--->
-
----
-
-### Зачем масштабировать?
-
 <table style="width: 100%; table-layout: fixed;">
   <thead>
     <tr>
       <th style="width: 25%;">Параллельно бегущие агенты</th>
-      <th style="width: 25%;">20</th>
-      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">10</th>
+      <th style="width: 25%;">100</th>
       <th style="width: 25%;">1&nbsp;000</th>
     </tr>
   </thead>
@@ -226,8 +209,8 @@ backgroundSize: contain
   <thead>
     <tr>
       <th style="width: 25%;">Параллельно бегущие агенты</th>
-      <th style="width: 25%;">20</th>
-      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">10</th>
+      <th style="width: 25%;">100</th>
       <th style="width: 25%;">1&nbsp;000</th>
     </tr>
   </thead>
@@ -290,8 +273,8 @@ backgroundSize: contain
   <thead>
     <tr>
       <th style="width: 25%;">Параллельно бегущие агенты</th>
-      <th style="width: 25%;">20</th>
-      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">10</th>
+      <th style="width: 25%;">100</th>
       <th style="width: 25%;">1&nbsp;000</th>
     </tr>
   </thead>
@@ -354,8 +337,8 @@ backgroundSize: contain
   <thead>
     <tr>
       <th style="width: 25%;">Параллельно бегущие агенты</th>
-      <th style="width: 25%;">20</th>
-      <th style="width: 25%;">200</th>
+      <th style="width: 25%;">10</th>
+      <th style="width: 25%;">100</th>
       <th style="width: 25%;">1&nbsp;000</th>
     </tr>
   </thead>
@@ -2225,12 +2208,7 @@ backgroundSize: contain
 
 <img src="/materials/RL_pipeline.png" class="w-[900px] mx-auto" />
 
----
 
-### Повышение эффективной утилизации GPU
-
-
-<img src="/materials/eff_util.png" class="w-[900px] mx-auto" />
 
 ---
 
@@ -2285,6 +2263,13 @@ backgroundSize: contain
 > подсвечивает нагрузку на GPU сервера - здесь все отлично
 
 <!-- TODO новая схема работы  -->
+
+---
+
+### Повышение эффективной утилизации GPU
+
+
+<img src="/materials/eff_util.png" class="w-[900px] mx-auto" />
 
 ---
 
